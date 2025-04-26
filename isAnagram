@@ -1,0 +1,16 @@
+// IS Anagram
+const isAnagrams = (str1, str2) => {
+  if(str1?.length !== str2?.length) return false;
+  const stringCount = {};
+  for(let i in str1){
+    stringCount[str1[i]] = (stringCount[str1[i]] || 0) + 1
+  }
+
+  for(let i in str2) {
+    if (!stringCount[str2[i]]) return false;
+    stringCount[str1[i]] --
+  }
+  return true
+}
+
+console.log(isAnagrams("aabb","abbb"));
