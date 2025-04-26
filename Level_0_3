@@ -1,0 +1,36 @@
+// 🧩 Problem: Remove all instances of a specific value in an array.
+
+// Input:
+// [3, 2, 2, 3], val = 3
+// Output:
+// [2, 2]
+
+
+// normal approach
+const removeElement = (arr, val) => {
+  const result = [];
+  for (let i of arr) {
+    if (i !== val) {
+      result.push(i);
+    }
+  }
+  return result;
+};
+
+console.log(removeElement([3, 2, 2, 3], 3)); // [2, 2]
+
+
+// without using extra space.
+const removeEleSpaceSaving = (arr, val) => {
+  let modArrIndexStatus = 0;
+  for (let i of arr) {
+    if (i !== val) {
+      arr[modArrIndexStatus] = i;
+      modArrIndexStatus++;
+    }
+  }
+  arr.length = modArrIndexStatus;
+  return arr
+}
+
+console.log(removeEleSpaceSaving([3, 2, 2, 3], 3)); // [2, 2]
