@@ -1,0 +1,21 @@
+// 🧩 1. Find if an Array has Two Numbers that Add to a Target
+// Example: Input: [2, 7, 11, 15], target = 9
+// Output: true (2 + 7 = 9)
+
+const TargetTwoSum = (arr, targetSum) => {
+  let sortedArr = arr?.sort((a,b) => a-b);
+  let i=0;
+  let j=sortedArr.length-1;
+  while(sortedArr[i] + sortedArr[j] !== targetSum) {
+    if(sortedArr[i] + sortedArr[j] < targetSum) {
+      i++
+    } else if(sortedArr[i] + sortedArr[j] > targetSum) {
+      j--
+    }else {
+      return [i,j]
+    }
+  }
+  return [i,j]
+}
+
+console.log(TargetTwoSum([2, 7, 11, 15], 9))
