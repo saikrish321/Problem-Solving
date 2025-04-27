@@ -1,0 +1,18 @@
+// "Remove Duplicates from Sorted Array (in-place)"
+// [1, 1, 2, 2, 3, 4, 4, 5]
+
+const removeDuplicates = (arr) => {
+  let slowPointer = 0;
+  for(let i=1; i <= arr?.length-1; i++) {
+    console.log(arr,slowPointer,i)
+
+    if(arr[slowPointer] !== arr[i]) {
+      slowPointer++
+      arr[slowPointer] = arr[i]
+    }
+  }
+  arr.length = slowPointer + 1;
+  return arr
+}
+
+console.log(removeDuplicates([1, 1, 2, 2, 3, 4, 4, 5]));
