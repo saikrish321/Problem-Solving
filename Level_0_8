@@ -1,0 +1,21 @@
+// 🧩 2. Reverse a String using Two Pointers
+// Example:
+// Input: "hello"
+// Output: "olleh"
+
+const reverseStringWithTwoPointer = (str) => {
+  let newString = [];
+  newString.length = str?.length
+  let i=0;
+  let j=str?.length - 1;
+  console.log(newString)
+  while (i < j) {
+    newString[i] = str[j];
+    newString[j] = str[i];
+    i++
+    j--
+  }
+  return newString?.join(",");
+}
+
+console.log(reverseStringWithTwoPointer("gksueskj"))
