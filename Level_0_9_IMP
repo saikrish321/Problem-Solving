@@ -17,3 +17,22 @@ const moveZerosToEnd = (arr) => {
 }
 
 moveZerosToEnd([0, 1, 0,0,0,0,0,0, 3, 12]); 
+
+
+// Input: [7, 2, 4, 5, 1, 6] and pivot = 5
+// Output (one possible): [2,4,1,5,6,7]
+// (Anything < 5 should come first, order not important.)
+
+const ArrangeLessAndGreaterThanPivot = (arr, pivot) => {
+  let i = 0;
+  for (let j=0; j < arr.length; j++) {
+    console.log(arr[j], pivot)
+    if(arr[j] <= pivot) {
+      [arr[i],arr[j]] = [arr[j],arr[i]];
+      i++
+    }
+  }
+  console.log(arr)
+}
+
+ArrangeLessAndGreaterThanPivot([7, 2, 4, 5, 1, 6],1)
