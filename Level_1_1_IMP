@@ -1,0 +1,25 @@
+// You are given an array containing only 3 types of numbers:
+// For example, 0, 1, and 2.
+// You need to sort them in-place, so that all 0s come first, then 1s, and then 2s.
+
+
+const sortThreeTypesInSeq = (arr) => {
+  let i=0;
+  let j=0;
+  let k = arr.length - 1;
+  while(j<= k){
+    if(arr[j] === 0){
+      [arr[i],arr[j]] = [arr[j],arr[i]];
+      i++
+      j++
+    } else if(arr[j]===2) {
+      [arr[j],arr[k]] = [arr[k],arr[j]]
+      k--
+    } else {
+      j++
+    }
+  }
+  console.log(arr)
+}
+
+sortThreeTypesInSeq([2, 0, 2, 1, 1, 0,0,0,0,0])
