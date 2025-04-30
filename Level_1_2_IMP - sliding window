@@ -1,0 +1,23 @@
+// Problem 1: Maximum Sum of Subarray of Size K
+// Input:
+// arr = [1, 4, 2, 10, 23, 3, 1, 0, 20]
+// k = 4
+// Goal: Find the maximum sum of any subarray of size k.
+// Expected Output: 39
+// (Because the subarray [10, 23, 3, 1] gives the highest sum)
+
+const MaxSumOfSubArray = (arr,k) => {
+  if (arr.length === 0 || arr.length < k) return 0;
+  let currSum = 0;
+  for(let i=0; i<k; i++) {
+    currSum+=arr[i]
+  }
+  let maxSum = currSum;
+  for(let right=k; right <arr.length; right++) {
+    currSum += arr[right] - arr[right-k]
+    maxSum = Math.max(currSum, maxSum)
+  }
+  return maxSum;
+}
+
+console.log(MaxSumOfSubArray([1, 4, 2, 10, 23, 3, 1, 0, 20], 4))
