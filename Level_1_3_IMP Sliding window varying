@@ -1,0 +1,24 @@
+// 🚀 Next Challenge: Smallest Subarray with Sum ≥ Target (Variable Window)
+// Input:
+// arr = [2,3,1,2,4,3], target = 7
+
+// Expected Output: 2
+// (Because [4,3] is the shortest subarray with sum ≥ 7)
+
+const SmallestSubArrToTarget = (arr, target) => {
+  let left=0;
+  let currSum=0;
+  let minLen = Infinity;
+  for(let right=0; right < arr.length; right ++) {
+    currSum += arr[right];
+
+    while(currSum >= target) {
+      minLen = Math.min(minLen,right-left+1)
+      currSum -= arr[left]
+      left++
+    }
+  }
+  return minLen;
+}
+
+console.log(SmallestSubArrToTarget([1, 2, 3, 4, 5],11))
