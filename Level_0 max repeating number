@@ -1,0 +1,27 @@
+const test = "onecompiler";
+
+const maxRepChar = (test) => {
+  let maxRep = {};
+  let reqMap = {}
+  for(let i of test) {
+    if(reqMap[i]) {
+      reqMap[i]++
+      if(Object.keys(maxRep)?.length){
+        if(maxRep[Object.keys(maxRep)[0]] < reqMap[i]){
+          maxRep={}
+          maxRep[i] = reqMap[i]
+        }
+      }else {
+        maxRep[i] = reqMap[i]
+      }
+    } else {
+      reqMap[i] = 1
+      if(!Object.keys(maxRep)?.length){
+        maxRep[i] = reqMap[i]
+      }
+    }
+  }
+  console.log(reqMap, maxRep )
+}
+
+maxRepChar(test)
