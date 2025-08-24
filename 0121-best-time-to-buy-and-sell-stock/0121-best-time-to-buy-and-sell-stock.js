@@ -3,20 +3,18 @@
  * @return {number}
  */
 var maxProfit = function(prices) {
-  let buyPrice = prices[0];
-  let sellPrice = 0;
-  let maxProfit = sellPrice - buyPrice;
-  
-  for(let i=0; i<prices.length; i++) {
-    if(prices[i] < buyPrice && (sellPrice - prices[i]) > maxProfit ) {
-      buyPrice = prices[i]
+    let buy=prices[0];
+    let sell;
+    let maxProfit=0;
+    for(let i of prices) {
+        if(i < buy) {
+            console.log(i)
+            buy = i
+        } else if( (i - buy) > maxProfit) {
+            console.log(i,buy)
+            sell = i
+            maxProfit = i - buy;
+        }
     }
-    
-    if(prices[i] > buyPrice && (prices[i] - buyPrice) > maxProfit) {
-      sellPrice = prices[i];
-      maxProfit = sellPrice - buyPrice
-    }
-  }
-  console.log(buyPrice,sellPrice,maxProfit)
-  return maxProfit > 0 ? maxProfit : 0;
+    return maxProfit
 };
